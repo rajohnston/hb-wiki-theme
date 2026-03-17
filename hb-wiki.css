@@ -1,0 +1,623 @@
+/* ========================================
+   HB Wiki Shared Stylesheet v2
+   Hawthorn Bloom — Warm, readable, engaging
+
+   Central source: github.com/rajohnston/hb-wiki-theme
+   Referenced via jsDelivr CDN by all HB project wikis.
+   Change once here, push, all wikis update.
+   ======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@500;700&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #faf9f6;
+  --bg-elevated: #ffffff;
+  --bg-hero: linear-gradient(135deg, #8b5c6b 0%, #6b4050 100%);
+  --text: #2d2d2d;
+  --text-muted: #5a5a5a;
+  --text-dim: #888888;
+  --accent: #8b5c6b;
+  --accent-soft: color-mix(in srgb, #8b5c6b 8%, transparent);
+  --accent-hover: #6b4050;
+  --success: #2d8a56;
+  --warning: #b8860b;
+  --error: #c0392b;
+  --info: #8b5c6b;
+  --border: #e0ddd8;
+  --border-light: #eae7e2;
+  --card-bg: #ffffff;
+  --code-bg: #f0ede8;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  --radius: 10px;
+  --radius-lg: 16px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1a1f;
+    --bg-elevated: #222228;
+    --bg-hero: linear-gradient(135deg, #5a3a45 0%, #4a2d38 100%);
+    --text: #e8e6e2;
+    --text-muted: #a8a8b0;
+    --text-dim: #6a6a78;
+    --accent: #d4a0b0;
+    --accent-soft: color-mix(in srgb, #d4a0b0 10%, transparent);
+    --accent-hover: #e2bcc8;
+    --success: #34d399;
+    --warning: #fbbf24;
+    --error: #f87171;
+    --info: #d4a0b0;
+    --border: #2a2a35;
+    --border-light: #333340;
+    --card-bg: #222228;
+    --code-bg: #2a2a35;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.15);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  body { font-weight: 450; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+html { font-size: 18px; scroll-behavior: smooth; }
+@media (min-width: 768px) { html { font-size: 19px; } }
+
+body {
+  font-family: 'Atkinson Hyperlegible', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 0;
+}
+
+@media (prefers-color-scheme: dark) { body { line-height: 1.65; } }
+
+/* ---- Layout ---- */
+
+.report {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 20px 24px;
+}
+
+.wiki {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+/* ---- Back link ---- */
+
+.back-link-bar {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 12px 20px 0;
+}
+
+.back-link {
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.8;
+  transition: opacity 0.15s;
+}
+
+.back-link:hover { opacity: 1; text-decoration: underline; }
+
+/* ---- Hero header (reports) ---- */
+
+.report-hero {
+  background: var(--bg-hero);
+  color: #fff;
+  padding: 36px 20px 32px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.report-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 60%, var(--success)) 50%,
+    var(--success) 100%
+  );
+}
+
+.report-hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.report-hero h1 {
+  font-family: 'DM Sans', 'Atkinson Hyperlegible', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Hero header (wiki index) ---- */
+
+.wiki-hero {
+  background: var(--bg-hero);
+  color: #fff;
+  padding: 36px 20px 32px;
+  position: relative;
+}
+
+.wiki-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 60%, var(--success)) 50%,
+    var(--success) 100%
+  );
+}
+
+.wiki-hero-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.wiki-hero h1 {
+  font-family: 'DM Sans', 'Atkinson Hyperlegible', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.wiki-hero p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.9rem;
+}
+
+/* ---- Meta ---- */
+
+.report-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.8);
+  align-items: center;
+}
+
+.report-meta .tag {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+/* ---- Search ---- */
+
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-box input,
+.nav-search input {
+  width: 100%;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  min-height: 44px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.search-box input { font-size: 1rem; padding: 12px 16px; }
+
+.search-box input:focus,
+.nav-search input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.search-box input::placeholder,
+.nav-search input::placeholder { color: var(--text-dim); }
+
+.nav-search { margin: 24px 0; }
+
+.result-count {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+
+/* ---- Tag cloud (index) ---- */
+
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.tag-cloud .tag-filter {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  cursor: pointer;
+  min-height: 32px;
+  line-height: 22px;
+  transition: all 0.15s;
+  user-select: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.tag-cloud .tag-filter:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.tag-cloud .tag-filter.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+/* ---- Report list (index) ---- */
+
+.report-list {
+  list-style: none;
+  padding: 0;
+}
+
+.report-item {
+  display: block;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 16px 16px 16px 20px;
+  margin-bottom: 12px;
+  text-decoration: none;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s, border-color 0.15s, transform 0.15s;
+  min-height: 44px;
+}
+
+.report-item:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.report-item[data-type="assessment"] { border-left-color: var(--info); }
+.report-item[data-type="audit"] { border-left-color: var(--warning); }
+.report-item[data-type="status"] { border-left-color: var(--success); }
+.report-item[data-type="issue"] { border-left-color: var(--error); }
+.report-item[data-type="reference"] { border-left-color: var(--accent); }
+
+.report-item-title {
+  font-family: 'DM Sans', 'Atkinson Hyperlegible', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.report-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  align-items: center;
+}
+
+.report-item-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ---- Tags (inline) ---- */
+
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.tag-assessment { background: color-mix(in srgb, var(--info) 15%, transparent); color: var(--info); }
+.tag-audit { background: color-mix(in srgb, var(--warning) 15%, transparent); color: var(--warning); }
+.tag-status { background: color-mix(in srgb, var(--success) 15%, transparent); color: var(--success); }
+.tag-issue { background: color-mix(in srgb, var(--error) 15%, transparent); color: var(--error); }
+.tag-reference { background: color-mix(in srgb, var(--accent) 15%, transparent); color: var(--accent); }
+
+/* ---- Headings ---- */
+
+h2 {
+  font-family: 'DM Sans', 'Atkinson Hyperlegible', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 36px;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border-light);
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: 'DM Sans', 'Atkinson Hyperlegible', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  color: var(--accent);
+}
+
+/* ---- Text ---- */
+
+p { margin-bottom: 12px; }
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  transition: text-decoration-color 0.15s;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  text-decoration-color: var(--accent-hover);
+}
+
+strong { font-weight: 700; }
+
+ul, ol { margin-bottom: 12px; padding-left: 1.4em; }
+li { margin-bottom: 6px; }
+li::marker { color: var(--accent); }
+
+/* ---- Callouts ---- */
+
+.callout {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 16px 16px 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.callout-success { border-left: 4px solid var(--success); }
+.callout-warning { border-left: 4px solid var(--warning); }
+.callout-error { border-left: 4px solid var(--error); }
+.callout-info { border-left: 4px solid var(--info); }
+
+.callout-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.callout-success .callout-title { color: var(--success); }
+.callout-warning .callout-title { color: var(--warning); }
+.callout-error .callout-title { color: var(--error); }
+.callout-info .callout-title { color: var(--info); }
+
+/* ---- Tables ---- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 16px;
+  font-size: 0.9rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+th, td { padding: 10px 14px; text-align: left; }
+
+th {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--accent-soft);
+  border-bottom: 2px solid var(--border);
+}
+
+td {
+  border-bottom: 1px solid var(--border-light);
+  background: var(--card-bg);
+}
+
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--accent-soft); }
+
+/* ---- Code ---- */
+
+code {
+  font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+  font-size: 0.85em;
+  background: var(--code-bg);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  overflow-x: auto;
+  margin-bottom: 16px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  box-shadow: var(--shadow-sm);
+}
+
+pre code { background: none; padding: 0; }
+
+/* ---- Details / Collapse ---- */
+
+details {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.15s;
+}
+
+details:hover { box-shadow: var(--shadow-md); }
+
+summary {
+  padding: 14px 16px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  user-select: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  color: var(--accent);
+  transition: background 0.15s;
+}
+
+summary:hover { background: var(--accent-soft); }
+
+details[open] summary {
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text);
+}
+
+details .detail-content { padding: 16px; }
+
+/* ---- Status badges ---- */
+
+.status {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.status-good { background: color-mix(in srgb, var(--success) 15%, transparent); color: var(--success); }
+.status-warn { background: color-mix(in srgb, var(--warning) 15%, transparent); color: var(--warning); }
+.status-bad { background: color-mix(in srgb, var(--error) 15%, transparent); color: var(--error); }
+.status-neutral { background: color-mix(in srgb, var(--text-dim) 15%, transparent); color: var(--text-muted); }
+
+/* ---- Flow diagram (special) ---- */
+
+.flow-diagram {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 20px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  white-space: pre;
+  overflow-x: auto;
+  box-shadow: var(--shadow-sm);
+}
+
+.flow-diagram .arrow { color: var(--accent); }
+.flow-diagram .label { color: var(--text-muted); font-style: italic; }
+
+/* ---- Divider ---- */
+
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  margin: 36px 0;
+}
+
+/* ---- Footer ---- */
+
+.report-footer,
+.wiki-footer {
+  margin-top: 48px;
+  padding: 20px 0;
+  border-top: 2px solid var(--border-light);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* ---- Empty state ---- */
+
+.empty-state {
+  text-align: center;
+  color: var(--text-dim);
+  padding: 40px 20px;
+  font-size: 0.95rem;
+}
+
+/* ---- Print ---- */
+
+@media print {
+  body { background: #fff; color: #000; padding: 0; }
+  .report, .wiki { max-width: 100%; }
+  .report-hero, .wiki-hero { background: #f5f5f5; color: #000; }
+  .report-hero::after, .wiki-hero::after { display: none; }
+  .report-meta .tag { background: #eee; color: #333; }
+  .back-link-bar, .nav-search { display: none; }
+  a { color: #000; text-decoration: underline; }
+  .callout, details, table { box-shadow: none; }
+  .callout { break-inside: avoid; border: 1px solid #ccc; }
+  details { break-inside: avoid; }
+  details[open] summary ~ * { display: block !important; }
+}
