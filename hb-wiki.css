@@ -452,6 +452,23 @@ li::marker { color: var(--accent); }
 .callout-success .callout-title { color: var(--success); }
 .callout-warning .callout-title { color: var(--warning); }
 .callout-error .callout-title { color: var(--error); }
+
+/* ---- Verdict blocks (alias for callouts used in assessments) ---- */
+
+.verdict {
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius);
+  margin: 1rem 0;
+  color: var(--text);
+  box-shadow: var(--shadow-sm);
+}
+
+.verdict p, .verdict li, .verdict span, .verdict strong { color: var(--text); }
+
+.verdict-green { background: color-mix(in srgb, var(--success) 8%, var(--card-bg)); border-left: 4px solid var(--success); }
+.verdict-amber { background: color-mix(in srgb, var(--warning) 8%, var(--card-bg)); border-left: 4px solid var(--warning); }
+.verdict-red { background: color-mix(in srgb, var(--error) 8%, var(--card-bg)); border-left: 4px solid var(--error); }
+.verdict-blue { background: color-mix(in srgb, var(--info) 8%, var(--card-bg)); border-left: 4px solid var(--info); }
 .callout-info .callout-title { color: var(--info); }
 
 /* ---- Tables ---- */
