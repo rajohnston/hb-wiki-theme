@@ -420,6 +420,7 @@ li::marker { color: var(--accent); }
 
 .callout {
   background: var(--card-bg);
+  color: var(--text);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px 16px 16px 20px;
@@ -427,10 +428,16 @@ li::marker { color: var(--accent); }
   box-shadow: var(--shadow-sm);
 }
 
-.callout-success { border-left: 4px solid var(--success); }
-.callout-warning { border-left: 4px solid var(--warning); }
-.callout-error { border-left: 4px solid var(--error); }
-.callout-info { border-left: 4px solid var(--info); }
+.callout p,
+.callout li,
+.callout span {
+  color: var(--text);
+}
+
+.callout-success { border-left: 4px solid var(--success); background: color-mix(in srgb, var(--success) 6%, var(--card-bg)); }
+.callout-warning { border-left: 4px solid var(--warning); background: color-mix(in srgb, var(--warning) 6%, var(--card-bg)); }
+.callout-error { border-left: 4px solid var(--error); background: color-mix(in srgb, var(--error) 6%, var(--card-bg)); }
+.callout-info { border-left: 4px solid var(--info); background: color-mix(in srgb, var(--info) 6%, var(--card-bg)); }
 
 .callout-title {
   font-family: 'DM Sans', sans-serif;
