@@ -466,15 +466,18 @@ li::marker { color: var(--accent); }
 
 .verdict p, .verdict li, .verdict span { color: var(--text); }
 
-.verdict-green { background: color-mix(in srgb, var(--success) 12%, var(--card-bg)); border-left: 5px solid var(--success); }
-.verdict-amber { background: color-mix(in srgb, var(--warning) 12%, var(--card-bg)); border-left: 5px solid var(--warning); }
-.verdict-red { background: color-mix(in srgb, var(--error) 12%, var(--card-bg)); border-left: 5px solid var(--error); }
-.verdict-blue { background: color-mix(in srgb, var(--info) 12%, var(--card-bg)); border-left: 5px solid var(--info); }
+.verdict-green { background: color-mix(in srgb, var(--success) 12%, var(--card-bg)); border-left: 5px solid var(--success); color: var(--text); }
+.verdict-amber { background: color-mix(in srgb, var(--warning) 12%, var(--card-bg)); border-left: 5px solid var(--warning); color: var(--text); }
+.verdict-red { background: color-mix(in srgb, var(--error) 12%, var(--card-bg)); border-left: 5px solid var(--error); color: var(--text); }
+.verdict-blue { background: color-mix(in srgb, var(--info) 12%, var(--card-bg)); border-left: 5px solid var(--info); color: var(--text); }
 
-.verdict-green strong { color: var(--success); }
-.verdict-amber strong { color: var(--warning); }
-.verdict-red strong { color: var(--error); }
-.verdict-blue strong { color: var(--info); }
+.verdict-green h4, .verdict-green strong { color: var(--success); }
+.verdict-amber h4, .verdict-amber strong { color: var(--warning); }
+.verdict-red h4, .verdict-red strong { color: var(--error); }
+.verdict-blue h4, .verdict-blue strong { color: var(--info); }
+
+.verdict-green li, .verdict-amber li, .verdict-red li, .verdict-blue li { color: var(--text); }
+.verdict-green p, .verdict-amber p, .verdict-red p, .verdict-blue p { color: var(--text); }
 .callout-info .callout-title { color: var(--info); }
 
 /* ---- Tables ---- */
