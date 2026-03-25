@@ -513,6 +513,269 @@ td {
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: var(--accent-soft); }
 
+/* ---- Card layouts (alternative to tables for 4+ column prose-heavy data) ---- */
+
+.audit-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.audit-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.audit-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+}
+
+.audit-card-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  margin: 0;
+}
+
+.audit-card-scores {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.score-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: var(--accent-soft);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.score-badge.high {
+  background: color-mix(in srgb, var(--success) 15%, var(--card-bg));
+  color: var(--success);
+}
+
+.score-badge.mid {
+  background: color-mix(in srgb, var(--warning) 15%, var(--card-bg));
+  color: var(--warning);
+}
+
+.score-badge.low {
+  background: color-mix(in srgb, var(--error) 15%, var(--card-bg));
+  color: var(--error);
+}
+
+.audit-card-content {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+
+.audit-card-notes {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.audit-card-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* Rewrite cards — before/after comparison */
+
+.rewrite-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 16px;
+}
+
+.rewrite-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 600px) {
+  .rewrite-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rewrite-before,
+.rewrite-after {
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.rewrite-before {
+  color: var(--text-muted);
+  text-decoration: line-through;
+  text-decoration-color: var(--error);
+}
+
+.rewrite-after {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.rewrite-why {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  border-top: 1px solid var(--border-light);
+  padding-top: 12px;
+}
+
+/* Blueprint cards — numbered step/section cards */
+
+.blueprint-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+}
+
+.blueprint-card-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.blueprint-number {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: var(--accent-soft);
+  border-radius: 100px;
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.blueprint-title {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.blueprint-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.blueprint-notes {
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Action cards — prioritized items with impact/effort tags */
+
+.action-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+}
+
+.action-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 10px;
+}
+
+.action-card-left {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.action-tags {
+  display: flex;
+  gap: 6px;
+}
+
+.impact-tag,
+.effort-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.impact-high {
+  background: color-mix(in srgb, var(--success) 15%, var(--card-bg));
+  color: var(--success);
+}
+
+.impact-medium {
+  background: color-mix(in srgb, var(--warning) 15%, var(--card-bg));
+  color: var(--warning);
+}
+
+.impact-low {
+  background: var(--accent-soft);
+  color: var(--text-muted);
+}
+
+.effort-low {
+  background: color-mix(in srgb, var(--info) 12%, var(--card-bg));
+  color: var(--info);
+}
+
+.effort-medium {
+  background: color-mix(in srgb, var(--warning) 12%, var(--card-bg));
+  color: var(--warning);
+}
+
+.effort-high {
+  background: color-mix(in srgb, var(--error) 12%, var(--card-bg));
+  color: var(--error);
+}
+
 /* ---- Code ---- */
 
 code {
@@ -649,7 +912,8 @@ hr {
   .report-meta .tag { background: #eee; color: #333; }
   .back-link-bar, .nav-search { display: none; }
   a { color: #000; text-decoration: underline; }
-  .callout, details, table { box-shadow: none; }
+  .callout, details, table, .audit-card, .rewrite-card, .blueprint-card, .action-card { box-shadow: none; }
+  .audit-card, .rewrite-card, .blueprint-card, .action-card { break-inside: avoid; border: 1px solid #ccc; }
   .callout { break-inside: avoid; border: 1px solid #ccc; }
   details { break-inside: avoid; }
   details[open] summary ~ * { display: block !important; }
